@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedComponent } from './shared/shared.component';
-import { UsersComponent } from './users/users.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  { path: '', component: SharedComponent},
-  { path: 'users', component: UsersComponent}
+  { path: '', component: UsersComponent}
 ];
 
 @NgModule({

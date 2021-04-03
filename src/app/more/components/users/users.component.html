@@ -1,0 +1,108 @@
+<app-shared></app-shared>
+<div class="container">
+    <div class="top">
+        <h3>Users</h3>
+        <a>Invite User</a>
+    </div>
+    <div class="users">
+        <h4>Active</h4>
+        <div class="list">
+            <div class="user" *ngFor="let user of active">
+                <div class="left">
+                    <p class="name">{{user.name}}</p>
+                    <p>{{user.email}}</p>
+                    <p [ngClass]="user.role?'role':'no-role'">{{user.role || "Assign a role"}}</p>
+                </div>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      btn
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" (click)="open(content, user._id)">Permissions</a>
+                      <a class="dropdown-item" href="#">Change Role</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Make Inactive</a>
+                      <a class="dropdown-item" (click)="deleteUser(user._id)">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4>Inactive</h4>
+        <div class="list">
+            <div class="user" *ngFor="let user of inactive">
+                <div class="left">
+                    <p class="name">{{user.name}}</p>
+                    <p>{{user.email}}</p>
+                    <p [ngClass]="user.role?'role':'no-role'">{{user.role || "Assign a role"}}</p>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      btn
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Permissions</a>
+                      <a class="dropdown-item" href="#">Change Role</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Make Inactive</a>
+                      <a class="dropdown-item" (click)="deleteUser(user._id)">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal-->
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Edit User Permissions</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p class="role">{{selectedUser.role}}</p>
+            <h3>{{selectedUser.name}}</h3>
+            <p>Permissions for this user can be customized below.<br>You can always <span>apply '{{selectedUser.role}} Group' defaults.</span></p>
+            <div class="form-group">
+                <p>Catalog</p>
+                <hr>
+                <div class="custom-control custom-switch">
+                    <label class="custom-control-label" for="catalog">View Costs & Profit</label>
+                    <input type="checkbox" class="custom-control-input" id="catalog">
+                </div>
+            </div>
+            <div class="form-group">
+                <p>Proposals</p>
+                <hr>
+                <div class="custom-control custom-switch">
+                    <label class="custom-control-label" for="proposals1">Edit Proposals</label>
+                    <input type="checkbox" class="custom-control-input" id="proposals1">
+                </div>
+                <div class="custom-control custom-switch">
+                    <label class="custom-control-label" for="proposals2">View Costs & Profits</label>
+                    <input type="checkbox" class="custom-control-input" id="proposals2">
+                </div>
+            </div>
+            <div class="form-group">
+                <p>People</p>
+                <hr>
+                <div class="custom-control custom-switch">
+                    <label class="custom-control-label" for="people">Edit Contacts</label>
+                    <input type="checkbox" class="custom-control-input" id="people">
+                </div>
+            </div>
+            <div class="form-group">
+                <p>Orders</p>
+                <hr>
+                <div class="custom-control custom-switch">
+                    <label class="custom-control-label" for="orders">View Cost</label>
+                    <input type="checkbox" class="custom-control-input" id="orders">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Save</button>
+        </div>
+    </ng-template>
+</div>

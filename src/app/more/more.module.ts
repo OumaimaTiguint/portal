@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { SharedComponent } from './shared/shared.component';
-import { UsersComponent } from './users/users.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [SidenavComponent, TopnavComponent, SharedComponent, UsersComponent],
