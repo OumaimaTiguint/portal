@@ -15,13 +15,14 @@
 .list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .user {
     border: 0.5px solid #e9e9e9;
     border-radius: 5px;
     padding: 10px;
-    margin: 0 10px 10px 0;
-    width: 50%;
+    margin: 0 5px 5px 0;
+    width: 48%;
     display: grid;
     grid-template-columns: 5fr 1fr;
 }

@@ -14,8 +14,8 @@
                     <p [ngClass]="user.role?'role':'no-role'">{{user.role || "Assign a role"}}</p>
                 </div>
                 <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      btn
+                    <a class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      l
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" (click)="open(content, user._id)">Permissions</a>
@@ -36,8 +36,8 @@
                     <p [ngClass]="user.role?'role':'no-role'">{{user.role || "Assign a role"}}</p>
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      btn
+                    <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      l
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="#">Permissions</a>
@@ -50,7 +50,6 @@
             </div>
         </div>
     </div>
-
     <!--Modal-->
     <ng-template #content let-modal>
         <div class="modal-header">
@@ -60,49 +59,109 @@
           </button>
         </div>
         <div class="modal-body">
-            <p class="role">{{selectedUser.role}}</p>
+            <p [ngClass]="selectedUser.role?'role':'no-role'">{{selectedUser.role || "Assign a role"}}</p>
             <h3>{{selectedUser.name}}</h3>
-            <p>Permissions for this user can be customized below.<br>You can always <span>apply '{{selectedUser.role}} Group' defaults.</span></p>
+            <p>Permissions for this user can be customized below.<br>You can always <span>apply '{{selectedUser.role || null}} Group' defaults.</span></p>
             <div class="form-group">
                 <p>Catalog</p>
                 <hr>
                 <div class="custom-control custom-switch">
-                    <label class="custom-control-label" for="catalog">View Costs & Profit</label>
-                    <input type="checkbox" class="custom-control-input" id="catalog">
+                    <input 
+                        type="checkbox" 
+                        class="custom-control-input" 
+                        id="catalog"
+                        [checked]="catalog"
+                        (change)="onCatalogCheck()"
+                        [(ngModel)]="catalog">
+                    <label 
+                        class="custom-control-label" 
+                        for="catalog">
+                        View Costs & Profit
+                    </label>
                 </div>
             </div>
             <div class="form-group">
                 <p>Proposals</p>
                 <hr>
                 <div class="custom-control custom-switch">
-                    <label class="custom-control-label" for="proposals1">Edit Proposals</label>
-                    <input type="checkbox" class="custom-control-input" id="proposals1">
+                    <input 
+                        type="checkbox" 
+                        class="custom-control-input" 
+                        id="proposals1"
+                        [checked]="proposals1"
+                        (change)="onProposals1Check()"
+                        [(ngModel)]="proposals1">
+                    <label 
+                        class="custom-control-label" 
+                        for="proposals1">
+                        Edit Proposals
+                    </label>
                 </div>
                 <div class="custom-control custom-switch">
-                    <label class="custom-control-label" for="proposals2">View Costs & Profits</label>
-                    <input type="checkbox" class="custom-control-input" id="proposals2">
+                    <input 
+                        type="checkbox" 
+                        class="custom-control-input" 
+                        id="proposals2"
+                        [checked]="proposals2"
+                        (change)="onProposals2Check()"
+                        [(ngModel)]="proposals2">
+                    <label 
+                        class="custom-control-label" 
+                        for="proposals2">
+                        View Costs & Profits
+                    </label>
                 </div>
             </div>
             <div class="form-group">
                 <p>People</p>
                 <hr>
                 <div class="custom-control custom-switch">
-                    <label class="custom-control-label" for="people">Edit Contacts</label>
-                    <input type="checkbox" class="custom-control-input" id="people">
+                    <input 
+                        type="checkbox" 
+                        class="custom-control-input" 
+                        id="people"
+                        [checked]="people"
+                        (change)="onPeopleCheck()"
+                        [(ngModel)]="people">
+                    <label 
+                        class="custom-control-label" 
+                        for="people">
+                        Edit Contacts
+                    </label>
                 </div>
             </div>
             <div class="form-group">
                 <p>Orders</p>
                 <hr>
                 <div class="custom-control custom-switch">
-                    <label class="custom-control-label" for="orders">View Cost</label>
-                    <input type="checkbox" class="custom-control-input" id="orders">
+                    <input 
+                        type="checkbox" 
+                        class="custom-control-input" 
+                        id="orders"
+                        [checked]="orders"
+                        (change)="onOrdersCheck()"
+                        [(ngModel)]="orders">
+                    <label 
+                        class="custom-control-label" 
+                        for="orders">
+                        View Cost
+                    </label>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
-            <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Save</button>
+            <button 
+                type="button" 
+                class="btn btn-outline-dark" 
+                (click)="modal.close()">
+                Close
+            </button>
+            <button 
+                class="btn btn-outline-dark" 
+                type="submit" 
+                (click)='onSubmit()'>
+                Save
+            </button>
         </div>
     </ng-template>
 </div>

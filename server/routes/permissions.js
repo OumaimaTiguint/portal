@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/update/:id', (req, res) => {
-    User.findById(req.params.id)
+    Permission.findById(req.params.id)
         .then(l => {
             l.userId = req.body.userId;
             l.catalog = req.body.catalog;
