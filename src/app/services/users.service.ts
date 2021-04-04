@@ -9,15 +9,15 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getAllUsers() {
-    return this.http.get("http://localhost:5000/")
+    return this.http.get("http://localhost:5000/u/")
   }
   deleteUser(id:string) {
-    return this.http.delete("http://localhost:5000/delete/" + id);
+    return this.http.delete("http://localhost:5000/u/delete/" + id);
   }
   editUser(id, name, email, role, active) {
-    return this.http.post("http://localhost:5000/update/"+ id, {name, email, role, active})
+    return this.http.post("http://localhost:5000/u/update/"+ id, {name, email, role, active})
   }
   getUserById(id) {
-    return this.http.get("http://localhost:5000/"+ id)
+    return this.http.get("http://localhost:5000/u/"+ id)
   }
 }
