@@ -135,6 +135,10 @@
             <div class="form-group">
                 <p>People</p>
                 <hr>
+                <a 
+                    type="button"
+					ngbPopover="This must be on when you have 'Edit proposals' turned on. To turn off, please first turn off 'Edit proposals'." 
+                    container="body">
                 <div class="custom-control custom-switch">
                     <input 
                         type="checkbox" 
@@ -142,7 +146,6 @@
                         id="people"
                         [checked]="people"
                         [(ngModel)]="people"
-                        placement="top"
                         disabled>
                     <label 
                         class="custom-control-label" 
@@ -151,6 +154,7 @@
                         <img src="assets/info.svg">
                     </label>
                 </div>
+                </a>
             </div>
             <div class="form-group">
                 <p>Orders</p>
@@ -180,7 +184,7 @@
                 Close
             </button>
             <button 
-                class="btn btn-outline-dark" 
+                class="btn submit" 
                 type="submit" 
                 (click)='onSubmit()'>
                 Save
