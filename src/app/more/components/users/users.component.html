@@ -17,9 +17,15 @@
                     </p>
                 </div>
                 <div class="dropdown">
-                    <a class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img src="assets/dots.svg">
-                    </a>
+                    <button 
+                        class="btn dropdown-toggle" 
+                        type="button" 
+                        id="dropdownMenuButton" 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">
+                        <img src="assets/dots.png">
+                    </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" (click)="open(content, user._id)">Permissions</a>
                       <a class="dropdown-item" href="#">Change Role</a>
@@ -39,8 +45,13 @@
                     <p [ngClass]="user.role?'role':'no-role'">{{user.role || "Assign a role"}}</p>
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="assets/dots.svg">
+                    <button 
+                        class="btn dropdown-toggle" 
+                        type="button" 
+                        id="dropdownMenuButton" 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="#">Permissions</a>
@@ -55,8 +66,8 @@
     </div>
     <!--Modal-->
     <ng-template #content let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Edit User Permissions</h4>
+        <div class="modal-header text-center">
+          <h4 class="modal-title  w-100" id="modal-basic-title">Edit User Permissions</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -66,8 +77,8 @@
                 <img *ngIf="!selectedUser.role" src="assets/exc.svg">
                 {{selectedUser.role || "Assign a role"}}
             </p>
-            <h3>{{selectedUser.name}}</h3>
-            <p>Permissions for this user can be customized below.<br>You can always <span>apply '{{selectedUser.role || null}} Group' defaults.</span></p>
+            <h3><strong>{{selectedUser.name}}</strong></h3>
+            <p>Permissions for this user can be customized below.<br>You can always <span>apply '{{selectedUser.role || ''}} Group' defaults.</span></p>
             <div class="form-group">
                 <p>Catalog</p>
                 <hr>
@@ -83,6 +94,7 @@
                         class="custom-control-label" 
                         for="catalog">
                         View Costs & Profit
+                        <img src="assets/info.svg">
                     </label>
                 </div>
             </div>
@@ -101,6 +113,7 @@
                         class="custom-control-label" 
                         for="proposals1">
                         Edit Proposals
+                        <img src="assets/info.svg">
                     </label>
                 </div>
                 <div class="custom-control custom-switch">
@@ -115,6 +128,7 @@
                         class="custom-control-label" 
                         for="proposals2">
                         View Costs & Profits
+                        <img src="assets/info.svg">
                     </label>
                 </div>
             </div>
@@ -127,12 +141,14 @@
                         class="custom-control-input" 
                         id="people"
                         [checked]="people"
-                        (change)="onPeopleCheck()"
-                        [(ngModel)]="people">
+                        [(ngModel)]="people"
+                        placement="top"
+                        disabled>
                     <label 
                         class="custom-control-label" 
                         for="people">
                         Edit Contacts
+                        <img src="assets/info.svg">
                     </label>
                 </div>
             </div>
@@ -151,6 +167,7 @@
                         class="custom-control-label" 
                         for="orders">
                         View Cost
+                        <img src="assets/info.svg">
                     </label>
                 </div>
             </div>

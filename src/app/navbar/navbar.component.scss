@@ -10,11 +10,22 @@ li a {
     text-align: center;
     font-size: 18px;
 }
-li:hover, li:active {
+
+.nav-item:hover, .nav-item:active, .active {
     border-left: 3px solid #dc4905;
-    a { color: #dc4905 }
+    a { 
+        color: #dc4905;
+    }
+    img {
+        filter: invert(37%) sepia(57%) saturate(6919%) hue-rotate(14deg) brightness(99%) contrast(96%);
+    }
 }
-img {
+img{
     display: block;
-    margin: auto
+    margin: auto;
+}
+.nav-item img {
+    display: block;
+    margin: auto;
+    width: 45px
 }

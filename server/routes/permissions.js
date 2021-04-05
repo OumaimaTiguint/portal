@@ -30,7 +30,7 @@ router.post('/add',(req, res) => {
     const proposals1 = req.body.proposals1;
     const proposals2 = req.body.proposals2;
     const people = req.body.people;
-    const orders = req.body.orders;
+    const orders = req.body.orders
     const newPermission = new Permission({
         userId,
         catalog,
@@ -38,8 +38,7 @@ router.post('/add',(req, res) => {
         proposals2,
         people,
         orders
-    });
-
+    })
     newPermission.save()
         .then(()=> res.json('Permission added!'))
         .catch((err)=> res.status(400).json('Error: ' + err))

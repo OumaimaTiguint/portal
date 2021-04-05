@@ -36,7 +36,7 @@ export class UsersComponent implements OnInit {
 
   open(content, id) {
     this.modalService.open(content, {
-      size: 'lg', scrollable: true, ariaLabelledBy: 'modal-basic-title'
+      scrollable: true, ariaLabelledBy: 'modal-basic-title'
     }).result.then((result) => {
       console.log(result)
     });
@@ -60,9 +60,15 @@ export class UsersComponent implements OnInit {
   }
 
   onCatalogCheck(){this.catalog = !this.catalog}
-  onProposals1Check(){this.proposals1 = !this.proposals1}
+  onProposals1Check(){
+    this.proposals1 = !this.proposals1;
+    if(this.proposals1) {
+      this.people = true
+    } else {
+      this.people = false
+    }
+  }
   onProposals2Check(){this.proposals2 = !this.proposals2}
-  onPeopleCheck(){this.people = !this.people}
   onOrders(){this.orders = !this.orders}
 
   onSubmit() {

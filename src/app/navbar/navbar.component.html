@@ -2,28 +2,46 @@
     <li class="navbar-brand">
         <img src="assets/portal.png">
     </li>
-    <li class="nav-item">
-        <img src="assets/cat.png">
-        <a class="nav-link" href="#">Catalogue</a>
+    <li 
+        class="nav-item" 
+        [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}">
+        <img src="assets/cat.svg">
+        <a class="nav-link" href="#">Catalog</a>
     </li>
-    <li class="nav-item">
-        <img src="assets/pro.png">
+    <li 
+        class="nav-item"
+        [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}">
+        <img src="assets/pro.svg">
         <a class="nav-link" href="#">Proposals</a>
     </li>
-    <li class="nav-item">
-        <img src="assets/peo.png">
+    <li 
+        class="nav-item"
+        [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}">
+        <img src="assets/peo.svg">
         <a class="nav-link" href="#">People</a>
     </li>
-    <li class="nav-item">
-        <img src="assets/pay.png">
+    <li 
+        class="nav-item"
+        [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}">
+        <img src="assets/pay.svg">
         <a class="nav-link" href="#">Payments</a>
     </li>
-    <li class="nav-item">
-        <img src="assets/ord.png">
+    <li 
+        class="nav-item"
+        [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}">
+        <img src="assets/ord.svg">
         <a class="nav-link" href="#">Orders</a>
     </li>
-    <li class="nav-item">
+    <li 
+        class="nav-item"
+        [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}">
         <img src="assets/more.svg">
-        <a class="nav-link" href="/more">More</a>
+        <a class="nav-link" [routerLink]="['/more']">More</a>
     </li>
 </nav>
