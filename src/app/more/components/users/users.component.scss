@@ -1,3 +1,4 @@
+@import '../../../../styles.scss';
 .container {
     margin-left: 32%;
     width: 65%
@@ -93,7 +94,15 @@
     .custom-control-input:checked ~ .custom-control-label::before {
         background-color: #fa5c12;
     }
+    .custom-control-input:disabled:checked ~ .custom-control-label::before  {
+        background-color: #fa5b12bb;
+    }
 }
+.my-custom-class .popover-body {
+    background-color: black !important;
+    color: white !important
+}
+
 #dropdownMenuButton::after {
     display: none;
 } 
@@ -105,4 +114,7 @@
 p { span {
     color: #fa5c12;
 }}
-.submit { background-color: #fa5c12;;}
+.submit { 
+    background-color: #fa5c12;
+    color: white
+}

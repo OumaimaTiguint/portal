@@ -64,6 +64,7 @@
             </div>
         </div>
     </div>
+    <!--The modal should be added in a seperate component when we have more than 1 modal-->
     <!--Modal-->
     <ng-template #content let-modal>
         <div class="modal-header text-center">
@@ -138,7 +139,9 @@
                 <a 
                     type="button"
 					ngbPopover="This must be on when you have 'Edit proposals' turned on. To turn off, please first turn off 'Edit proposals'." 
-                    container="body">
+                    container="body"
+                    popoverClass="my-custom-class"
+                    triggers="mouseenter:mouseleave">
                 <div class="custom-control custom-switch">
                     <input 
                         type="checkbox" 
@@ -179,7 +182,7 @@
         <div class="modal-footer">
             <button 
                 type="button" 
-                class="btn btn-outline-dark" 
+                class="btn " 
                 (click)="modal.close()">
                 Close
             </button>
